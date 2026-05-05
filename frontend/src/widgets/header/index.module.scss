@@ -1,7 +1,54 @@
 .header {
   display: flex;
-  gap: 10px;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
   color: white;
-  margin: 10px 0px 0px 10px;
+  padding: 10px;
+  font-size: 20px;
+
+  &__mainSection {
+    display: flex;
+    gap: 20px
+  }
+
+  &__secondSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+  }
+
+  &__oneSection {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  &__twoSection {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__logout {
+    background-color: rgb(248, 115, 115);
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: rgb(255, 80, 80);
+    }
+  }
 }
