@@ -34,11 +34,11 @@ export const LoginForm = () => {
           refreshToken: res.refreshToken,
         }),
       );
-      alert('Успех');
+      alert("Успех");
       reset();
       navigate("/");
     } else {
-      alert('Cola');
+      alert("Cola");
     }
   };
 

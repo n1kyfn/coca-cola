@@ -1,8 +1,9 @@
 import { baseApi } from "../../../shared/api/baseApi";
+import type { TUserLogin, TUserReg, TUserResponse } from "../model/types";
 
 const authApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        register: builder.mutation({
+        register: builder.mutation<TUserResponse, TUserReg>({
             query: (userData) => ({
                 url: '/auth/register',
                 method: 'POST',
@@ -11,7 +12,7 @@ const authApi = baseApi.injectEndpoints({
             invalidatesTags: ['User']
         }),
 
-        login: builder.mutation({
+        login: builder.mutation<TUserResponse, TUserLogin>({
             query: (userData) => ({
                 url: '/auth/login',
                 method: 'POST',
