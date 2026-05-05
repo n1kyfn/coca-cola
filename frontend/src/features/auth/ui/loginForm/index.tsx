@@ -22,6 +22,8 @@ export const LoginForm = () => {
 
   const [loginApi] = useLoginMutation();
 
+  const { showToast } = useToast();
+
   const onSubmit = async (userData: TUserLogin) => {
     const res = await loginApi(userData).unwrap();
 
@@ -29,10 +31,10 @@ export const LoginForm = () => {
       dispatch(
         setAuth({
           isAuth: true,
-          ...res
+          ...res,
         }),
       );
-      alert("Успех");
+      showToast("Вы успешно заругистрировались", "success");
       reset();
       navigate("/");
     } else {

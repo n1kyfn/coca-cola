@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setAuth } from "../../../../entities/auth/model/authSlice";
 import type { TUserReg } from "../../../../entities/auth/model/types";
 import { useNavigate } from "react-router";
+import { useToast } from "shared/ui/toast/toast-provider";
 
 export const RegisterForm = () => {
   const {
@@ -22,21 +23,22 @@ export const RegisterForm = () => {
 
   const [registerApi] = useRegisterMutation();
 
-  const onSubmit = async (userData) => {
-    const res = await registerApi(userData).unwrap();
+  const { showToast } = useToast();
 
-    if (res) {
+  const onSubmit = async (userData: TUserReg) => {
+    try {
+      const res = await registerApi(userData).unwrap();
       dispatch(
         setAuth({
           isAuth: true,
           ...res,
         }),
       );
-      alert("Успех");
+      showToast("Вы успешно заругистрировались", "success");
       reset();
       navigate("/");
-    } else {
-      alert("Cola");
+    } catch {
+      showToast("Ошибка при регистрации!", "error");
     }
   };
 
@@ -49,10 +51,12 @@ export const RegisterForm = () => {
           Логин
           <input
             type="text"
-            {...register("name")}
+            {...register("username")}
             placeholder="Введите логин..."
           />
-          {errors.name && <div className="error">{errors.name.message}</div>}
+          {errors.username && (
+            <div className="error">{errors.username.message}</div>
+          )}
         </label>
 
         <label>
