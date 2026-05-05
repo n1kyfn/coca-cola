@@ -29,9 +29,7 @@ export const LoginForm = () => {
       dispatch(
         setAuth({
           isAuth: true,
-          user: res.user,
-          accessToken: res.accessToken,
-          refreshToken: res.refreshToken,
+          ...res
         }),
       );
       alert("Успех");
