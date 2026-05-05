@@ -18,4 +18,8 @@ export type TInitialState = {
 
 export type TUserLogin = Pick<IUser, "password" | "email">;
 export type TUserReg = Pick<IUser, "username" | "email" | "password">;
-export type TUserResponse = Omit<IUser, "password">;
+export type TUserResponse = {
+  accessToken: string,
+  refreshToken: string,
+  user: IUser
+}

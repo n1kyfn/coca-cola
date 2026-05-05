@@ -1,3 +1,10 @@
+import { RegisterForm } from "features/auth/ui/registerForm";
+import styles from './index.module.scss'
+
 export function RegisterPage() {
-  return <div>RegisterPage</div>;
+  return (
+    <div className={styles.registerPage}>
+      <RegisterForm />
+    </div>
+  );
 }
