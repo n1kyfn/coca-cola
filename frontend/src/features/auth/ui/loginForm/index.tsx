@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 import { setAuth } from "../../../../entities/auth/model/authSlice";
 import type { TUserLogin } from "../../../../entities/auth/model/types";
 import { useNavigate } from "react-router";
-import styles from './index.module.scss'
+import styles from "./index.module.scss";
+import { useToast } from "shared/ui/toast/toast-provider";
 
 export const LoginForm = () => {
   const {
@@ -23,6 +24,8 @@ export const LoginForm = () => {
 
   const [loginApi] = useLoginMutation();
 
+  const { showToast } = useToast();
+
   const onSubmit = async (userData: TUserLogin) => {
     const res = await loginApi(userData).unwrap();
 
@@ -30,10 +33,10 @@ export const LoginForm = () => {
       dispatch(
         setAuth({
           isAuth: true,
-          ...res
+          ...res,
         }),
       );
-      alert("Успех");
+      showToast("Вы успешно вошли", "success");
       reset();
       navigate("/");
     } else {
@@ -52,7 +55,7 @@ export const LoginForm = () => {
             type="text"
             {...register("email")}
             placeholder="Введите почту..."
-            style={errors.email ? { border: '3px solid red' } : {}}
+            style={errors.email ? { border: "3px solid red" } : {}}
           />
           {errors.email && <div className="error">{errors.email.message}</div>}
         </label>
@@ -63,7 +66,7 @@ export const LoginForm = () => {
             type="text"
             {...register("password")}
             placeholder="Введите пароль..."
-            style={errors.password ? { border: '3px solid red' } : {}}
+            style={errors.password ? { border: "3px solid red" } : {}}
           />
           {errors.password && (
             <div className="error">{errors.password.message}</div>

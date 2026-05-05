@@ -1,0 +1,35 @@
+.toastsContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  gap: 10px;
+  top: 20px;
+  right: 20px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  animation: slide 0.3s ease;
+
+  &__success {
+    background-color: rgb(50, 199, 50);
+  }
+  &__error {
+    background-color: red;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
