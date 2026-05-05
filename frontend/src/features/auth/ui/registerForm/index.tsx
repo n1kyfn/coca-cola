@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegisterMutation } from "../../../../entities/auth/api/authApi";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../../../entities/auth/model/authSlice";
-import type { TUserReg } from "../../../../entities/auth/model/types";
 import { useNavigate } from "react-router";
+import styles from './index.module.scss'
 
 export const RegisterForm = () => {
   const {
@@ -41,7 +41,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.containerReg}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>Регистрация</h1>
 
@@ -51,6 +51,7 @@ export const RegisterForm = () => {
             type="text"
             {...register("name")}
             placeholder="Введите логин..."
+            style={errors.name ? { border: '3px solid red' } : {}}
           />
           {errors.name && <div className="error">{errors.name.message}</div>}
         </label>
@@ -61,6 +62,7 @@ export const RegisterForm = () => {
             type="text"
             {...register("email")}
             placeholder="Введите почту..."
+            style={errors.email ? { border: '3px solid red' } : {}}
           />
           {errors.email && <div className="error">{errors.email.message}</div>}
         </label>
@@ -71,6 +73,7 @@ export const RegisterForm = () => {
             type="text"
             {...register("password")}
             placeholder="Введите пароль..."
+            style={errors.password ? { border: '3px solid red' } : {}}
           />
           {errors.password && (
             <div className="error">{errors.password.message}</div>

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setAuth } from "../../../../entities/auth/model/authSlice";
 import type { TUserLogin } from "../../../../entities/auth/model/types";
 import { useNavigate } from "react-router";
+import styles from './index.module.scss'
 
 export const LoginForm = () => {
   const {
@@ -41,7 +42,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.containerLogin}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>Авторизация</h1>
 
@@ -51,6 +52,7 @@ export const LoginForm = () => {
             type="text"
             {...register("email")}
             placeholder="Введите почту..."
+            style={errors.email ? { border: '3px solid red' } : {}}
           />
           {errors.email && <div className="error">{errors.email.message}</div>}
         </label>
@@ -61,6 +63,7 @@ export const LoginForm = () => {
             type="text"
             {...register("password")}
             placeholder="Введите пароль..."
+            style={errors.password ? { border: '3px solid red' } : {}}
           />
           {errors.password && (
             <div className="error">{errors.password.message}</div>
