@@ -5,3 +5,5 @@ export const CONFIG = {
 } as const
 
 export const BASE_URL = CONFIG.SERVER
+
+export const ITEMS_LIMIT = 10
