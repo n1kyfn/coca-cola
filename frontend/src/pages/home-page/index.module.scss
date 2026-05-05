@@ -1,0 +1,33 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  &__popular {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__reviews {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    background-color: var(--bg);
+    border: 2px solid var(--border);
+    padding: 60px;
+    border-radius: 40px;
+    box-shadow: var(--shadow);
+
+    max-width: 400px;
+    width: 100%;
+  }
+}
