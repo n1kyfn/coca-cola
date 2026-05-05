@@ -4,7 +4,7 @@ export interface IUser {
   id: number;
   isActive: boolean;
   role: TRole;
-  username: string;
+  name: string;
   password: string;
   email: string;
 }
@@ -17,7 +17,7 @@ export type TInitialState = {
 };
 
 export type TUserLogin = Pick<IUser, "password" | "email">;
-export type TUserReg = Pick<IUser, "username" | "email" | "password">;
+export type TUserReg = Pick<IUser, "name" | "email" | "password">;
 export type TUserResponse = {
   accessToken: string;
   refreshToken: string;

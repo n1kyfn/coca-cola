@@ -52,13 +52,11 @@ export const RegisterForm = () => {
           Логин
           <input
             type="text"
-            {...register("username")}
+            {...register("name")}
             placeholder="Введите логин..."
-            style={errors.username ? { border: "3px solid red" } : {}}
+            style={errors.name ? { border: "3px solid red" } : {}}
           />
-          {errors.username && (
-            <div className="error">{errors.username.message}</div>
-          )}
+          {errors.name && <div className="error">{errors.name.message}</div>}
         </label>
 
         <label>
