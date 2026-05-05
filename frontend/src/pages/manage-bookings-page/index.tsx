@@ -1,5 +1,3 @@
-import React from "react";
-
 export function ManageBookingsPage() {
-  return <div></div>;
+  return <div>ManageBookingsPage</div>;
 }
