@@ -1,6 +1,3 @@
-import React from "react";
-
 export function RegisterPage() {
-  return <div></div>;
+  return <div>RegisterPage</div>;
 }
-

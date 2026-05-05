@@ -1,5 +1,3 @@
-import React from "react";
-
 export function SpacesPage() {
-  return <div></div>;
+  return <div>SpacesPage</div>;
 }

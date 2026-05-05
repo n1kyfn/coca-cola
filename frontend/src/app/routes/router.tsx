@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router";
-import { routePaths } from "../../shared/config/routePaths";
-import Layout from "../layouts/layout";
 import { HomePage } from "pages/home-page";
 import { LoginPage } from "pages/loign-page";
 import { RegisterPage } from "pages/register-page";
@@ -10,6 +8,8 @@ import { ManageBookingsPage } from "pages/manage-bookings-page";
 import { AdminPage } from "pages/admin-page";
 import { ProfilePage } from "pages/profile-page";
 import { NotFoundPage } from "pages/not-found-page";
+import { routePaths } from "shared/config/routePaths";
+import Layout from "app/layouts/layout";
 
 export const router = createBrowserRouter([
   {
